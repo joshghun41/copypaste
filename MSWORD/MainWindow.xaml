@@ -1,0 +1,61 @@
+﻿<Window x:Class="MSWORD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MSWORD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="688" Width="850">
+    <Grid>
+        <WrapPanel  HorizontalAlignment="Center" Width="830" Margin="0,0,0,10" >
+            <WrapPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </WrapPanel.Background>
+
+            <ToolBar Width="732" Height="58">
+                <TextBox Name="textbox1" Width="132" IsEnabled="False"  />
+                <Button Content="Open"  Height="23" Width="50" Background="#FFFFFA70" Click="Button_Click_5"/>
+                <Button Name="savebtn" Content="Save"  Height="23" Width="50" Click="Button_Click_3"/>
+                <Button Content="Cut"  Height="56" Width="100" BorderBrush="White" Click="Button_Click_2"/>
+                <Button Content="Copy"  Height="56" Width="100" Click="Button_Click" BorderBrush="#FF16B2DA" />
+                <Button Content="Paste"  Height="56" Width="100" Click="Button_Click_1" BorderBrush="#FF235AB3" />
+                <Button Content="Select All"  Height="56" Width="124" Click="Button_Click_4" BorderBrush="#FF2316C3"/>
+                <ToggleButton Name="Toggle2" 
+                         Height="24" Width="50" HorizontalAlignment="Left" BorderBrush="#FFDE2828" Checked="Toggle2_Checked">
+                    <ToggleButton.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="White"  Offset="1"/>
+                        </RadialGradientBrush>
+                    </ToggleButton.Background>
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Border x:Name="B1" Background="Black"
+                                CornerRadius="10" Padding="1">
+                                <Border x:Name="B2" Background="White"
+                                    Width="{TemplateBinding Height}"
+                                    CornerRadius="20" HorizontalAlignment="Left">
+                                    <ContentPresenter/>
+                                </Border>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="B2" Property="HorizontalAlignment" Value="Right"/>
+                                    <Setter TargetName="B1" Property="Background" Value="Gray"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </ToolBar>
+            <TextBox  Height="360" x:Name="textBox2" Width="732" Background="#FF585858" FontSize="22"  Opacity="0.8" BorderThickness="4,2,2,2" TextChanged="textchanged">
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+        </WrapPanel>
+    </Grid>
+</Window>
